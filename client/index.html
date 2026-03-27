@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FF GANGSTER | Esports</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Orbitron',sans-serif;
+}
+
+body{
+  background:#000;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* 🔥 PARTICLES BACKGROUND */
+canvas{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:-1;
+}
+
+/* HEADER */
+header{
+  text-align:center;
+  padding:12px;
+  border-bottom:2px solid #ff6f00;
+}
+
+header h1{
+  color:#ff6f00;
+  text-shadow:0 0 20px #ff6f00;
+  font-size:22px;
+}
+
+/* HERO */
+.hero{
+  height:80vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:15px;
+}
+
+.hero h2{
+  font-size:24px;
+  color:#ff6f00;
+  text-shadow:0 0 15px #ff6f00;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow{
+  from{ text-shadow:0 0 10px #ff6f00; }
+  to{ text-shadow:0 0 30px #ff6f00; }
+}
+
+.hero p{
+  margin:12px 0;
+  font-size:13px;
+  color:#ccc;
+}
+
+/* CTA BUTTON */
+.hero a{
+  display:inline-block;
+  padding:12px 25px;
+  background:linear-gradient(45deg,#ff6f00,#ff9100);
+  color:black;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+.hero a:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 25px #ff6f00;
+}
+
+/* STATS */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  padding:20px;
+  text-align:center;
+}
+
+.stat{
+  background:#111;
+  padding:15px;
+  border-radius:10px;
+  border:1px solid #ff6f0033;
+}
+
+.stat h3{
+  color:#ff6f00;
+}
+
+/* FEATURES */
+.features{
+  padding:20px;
+  display:grid;
+  gap:10px;
+}
+
+.box{
+  background:#111;
+  padding:15px;
+  border-radius:10px;
+  text-align:center;
+  border:1px solid #ff6f0033;
+}
+
+.box h3{
+  color:#ff6f00;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:15px;
+  font-size:12px;
+  color:#777;
+}
+
+/* RESPONSIVE */
+@media (min-width:600px){
+  .hero h2{ font-size:30px; }
+  .stats{ grid-template-columns:repeat(3,1fr); }
+}
+
+@media (min-width:900px){
+  .hero h2{ font-size:40px; }
+  .features{ grid-template-columns:repeat(3,1fr); }
+}
+.t-card{
+    margin-left: 25px;
+    background-color: #ff9100;
+    color: black;
+    padding: 5px;
+    padding-left: 10px;
+    border-radius: 10px;
+}
+.rules * {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+  color: #ccc;
+  font-size: 13px;
+}
+.tournament-rules-head{
+  color: #ff6f00;
+  text-align: center;
+  margin-bottom: 15px;
+  text-shadow: 0 0 10px #ff6f00;
+}
+.tournament-format {
+  background: #111;
+  margin: 5px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #ff6f0033;
+}
+
+.tournament-format h2 {
+  color: #ff6f00;
+  text-align: center;
+  margin-bottom: 15px;
+  text-shadow: 0 0 10px #ff6f00;
+}
+
+.tournament-format p {
+  font-family: 'Poppins', sans-serif;
+  color: #ccc;
+  margin: 6px 0;
+  font-size: 13px;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="bg"></canvas>
+
+<header>
+  <h1>🔥 FF GANGSTER 🔥</h1>
+</header>
+
+<section class="hero">
+  <div>
+    <h2>DOMINATE THE BATTLEGROUND</h2>
+    <p>Join the most intense Free Fire tournaments</p>
+    <p>Last date of Registration <span style="font-weight: bolder; color: #ffffff;">( 31th March 2026 )</span></p>
+    <a href="register.html">🚀 REGISTER NOW</a>
+  </div>
+</section>
+
+<!-- POINTS SYSTEM IS HERE -->
+<!-- <section class="hero">
+
+</section> -->
+
+<section>
+    <h3 class="t-card">On Going Tournament...</h3>
+</section>
+
+<section class="stats">
+  <div class="stat">
+    <h3>10+</h3>
+    <p>Teams</p>
+  </div>
+  <div class="stat">
+    <h3>₹1300+</h3>
+    <p>Prize Pool</p>
+  </div>
+  <div class="stat">
+    <h3>Live</h3>
+    <p>Tournaments</p>
+  </div>
+</section>
+
+<section class="features">
+  <div class="box">
+    <h3>🎮 Competitive Matches</h3>
+    <p>High skill gameplay</p>
+  </div>
+  <div class="box">
+    <h3>🔥 Real Rewards</h3>
+    <p>Earn money & fame</p>
+  </div>
+  <div class="box">
+    <h3>🏆 Clan Battles</h3>
+    <p>Fight top players</p>
+  </div>
+  <div class="tournament-format">
+
+  <h2>🔥 Tournament Format & Prize Details 🔥</h2>
+
+  <p>🎮 Mode: Free Fire Clash Squad / Bermuda (League + Finals)</p>
+  <p>👥 Team Size: 4 Players + 1 Substitute</p>
+  <p>📊 League System: All teams will play multiple matches and earn points based on performance. The Number matches depends on Total Team count.</p>
+  <p style="font-weight: bolder; color:white ;" >📈 Points System for Bermunda:</p>
+  <p>➤ Each Kill = 1 Point</p>
+  <p>➤ Booyah (1st Rank) = +5 Points</p>
+  <p>➤ 2nd Rank = +3 Points</p>
+  <p>➤ 3rd Rank = +2 Points</p>
+  <p style="font-weight: bolder; color: white;">📈 Points System for Clash Squad:</p>
+  <p>➤ Booyah (13 rounds) = +2 Points</p>
+  <p>➤ Or Booyah (Dominate - score like 0 , 7) = +3 Points</p>
+  <p>➤ Lose = Points equals to NUmber of score </p>
+  <p style="margin-left: 17px;" >supose player A,B score 6,7(13 rounds) so A = 6 points and B = 7+2(booyah) = 9 points </p>
+
+  <p>🏆 Qualification: After all league matches, TOP 4 teams will qualify for Finals.</p>
+  <p>🔥 Final Round System:</p>
+  <p>➤ Top 4 teams will play against each other</p>
+  <p>➤ Best performance team will be declared WINNER</p>
+    <p>💰 Entry Fee: ₹199 per team</p>
+  <p>💸 Prize Distribution:</p>
+  <p>🥇 Winner: ₹1000</p>
+  <p>🥈 Runner-up: ₹300</p>
+  <p>📢 Ranking System: Final ranking will be based on total points (kills + position).</p>
+  <p>⏱ Match Timing: All matches will be played on schedule. Late entry may lead to disqualification.</p>
+  <p>🎯 Fair Play: Any cheating or unfair practice will result in instant elimination.</p>
+  <p>➤ All important updates, match schedules, and results will be shared through our official WhatsApp group and In our Offcial website means here. After registration, your team will be added to the group for smooth communication and coordination.</p>
+
+</div>
+
+    <div style="background:#111; padding:15px; border-radius:10px; border:1px solid #ff6f0033; color:white;">
+
+    <h3 class="tournament-rules-head" style="color:#ff6f00; text-align:center; margin-bottom: 15px; font-size: x-large;">🔥 Tournament Rules 🔥</h3>
+
+    <div class="rules">
+        <p>➤ In CS (Clash Squad), players are NOT allowed to trap enemies in zone intentionally.</p>
+        <p>➤ All players must play using allowed/default guns only. No unfair advantage weapons.</p>
+        <p>➤ No hacking, cheating, or use of any third-party tools is strictly prohibited.</p>
+        <p>➤ Use of panels, mods, or config files is NOT allowed. If caught → immediate elimination.</p>
+        <p>➤ All matches will be recorded for fair play and verification.</p>
+        <p>➤ 2–3 spectators/admins will monitor matches. Any suspicious activity → direct disqualification.</p>
+        <p>➤ Once registered, the team MUST participate. No last-minute cancellation allowed.</p>
+        <p>➤ No refund will be provided after 6 hours of registration.</p>
+        <p>➤ UTR number must be valid. Invalid or fake UTR → disqualification.</p>
+        <p>➤ Duplicate UTR submissions will lead to instant removal from tournament.</p>
+        <p>➤ All matches will be played on time. No excuses like “network issue” or “late join”.</p>
+        <p>➤ Team must join lobby within given time. Delay can lead to match loss.</p>
+        <p>➤ Any kind of abusive language or toxic behavior is strictly banned.</p>
+        <p>➤ Decision taken by admin will be final and cannot be challenged.</p>
+        <p>➤ Players must use their registered in-game names only.</p>
+        <p>➤ Team changes after registration are NOT allowed.</p>
+        <p>➤ In case of technical issue from server side, match may be restarted.</p>
+        <p>➤ Fair play and sportsmanship is mandatory for all participants.</p>
+        <p>➤ If any match fails to start due to technical or organizational reasons, it will be rescheduled. If rescheduling is not possible, a full refund will be issued. We ensure complete safety of your payment.</p>
+
+    </div>
+
+</div>
+ 
+</section>
+
+<footer>
+  © 2026 FF GANGSTER
+</footer>
+
+<!-- 🔥 PARTICLE JS -->
+<script>
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+let particles = [];
+
+for(let i=0;i<80;i++){
+  particles.push({
+    x:Math.random()*canvas.width,
+    y:Math.random()*canvas.height,
+    r:Math.random()*2,
+    d:Math.random()*1
+  });
+}
+
+function draw(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle="#ff6f00";
+
+  particles.forEach(p=>{
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fill();
+
+    p.y += p.d;
+    if(p.y > canvas.height){
+      p.y = 0;
+      p.x = Math.random()*canvas.width;
+    }
+  });
+
+  requestAnimationFrame(draw);
+}
+
+draw();
+</script>
+
+</body>
+</html>

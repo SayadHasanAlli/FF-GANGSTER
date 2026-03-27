@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel</title>
+  <style>
+    body { font-family: Arial; background:#111; color:white; }
+
+    #container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      padding: 10px;
+    }
+
+    .card {
+      background:#222;
+      padding:15px;
+      border-radius:10px;
+    }
+
+    button {
+      padding:8px;
+      margin:5px;
+      border:none;
+      cursor:pointer;
+    }
+
+    .approve { background:green; color:white; }
+    .delete { background:red; color:white; }
+
+    ul { padding-left:20px; }
+    li { margin:4px 0; list-style:"🎮 "; }
+
+    @media (max-width:1024px){
+      #container { grid-template-columns:repeat(2,1fr); }
+    }
+
+    @media (max-width:600px){
+      #container { grid-template-columns:repeat(1,1fr); }
+    }
+    .heading{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .status{
+        color: #939393;
+        margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h2 align="center">🧑‍💻 Admin Panel</h2>
+<div id="container"></div>
+
+<script>
+async function loadTeams() {
+  const res = await fetch("http://localhost:5000/teams");
+  const data = await res.json();
+
+  const container = document.getElementById("container");
+  container.innerHTML = "";
+
+  console.log(data);
+  data.forEach(t => {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    
+
+    card.innerHTML = `
+     <div class="heading"><h2>${t.team}</h2><p class="status">(${t.status})</p></div>
+
+      <p><b>Players:</b></p>
+      <ul>
+        ${t.players.map((p,i)=> p ? `<li>Player ${i+1}: ${p}</li>` : "").join("")}
+      </ul>
+
+      <p>📱 WhatsApp: ${t.wpnum || "Not provided"}</p>
+      <p>UPI: ${t.upi}</p>
+      <p>UTR: ${t.utr}</p>
+      <p>Payer: ${t.payer}</p>
+
+      <button class="approve" onclick="approve('${t._id}')">Approve</button>
+      <button class="delete" onclick="del('${t._id}')">Delete</button>
+    `;
+
+    container.appendChild(card);
+  });
+}
+
+async function approve(id){
+  await fetch(`http://localhost:5000/approve/${id}`, {method:"PUT"});
+  loadTeams();
+}
+
+async function del(id){
+  await fetch(`http://localhost:5000/delete/${id}`, {method:"DELETE"});
+  loadTeams();
+}
+
+loadTeams();
+</script>
+
+</body>
+</html>
