@@ -35,7 +35,7 @@ app.post("/register", async (req, res) => {
     const team = new Team(req.body);
     await team.save();
 
-    res.json({ msg: "Registered Successfully" });
+    res.json({ msg: "Registered Successfully", success: true });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
