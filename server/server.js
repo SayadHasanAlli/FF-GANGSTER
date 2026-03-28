@@ -34,16 +34,9 @@ const Team = mongoose.model("Team", teamSchema);
 ========================= */
 const soloSchema = new mongoose.Schema({
   players: [String],
-  wpnum: {
-    type: String,
-    required: true,
-  },
+  wpnum: String,
   upi: String,
-  utr: {
-    type: String,
-    unique: true, // 🔥 no duplicate UTR
-    sparse: true,
-  },
+  utr: String,
   payer: String,
   refer: String,
   status: { type: String, default: "pending" },
@@ -93,26 +86,6 @@ app.delete("/delete/:id", async (req, res) => {
 // 📌 Register SOLO
 app.post("/register_solo", async (req, res) => {
   try {
-    const { players, wpnum, utr } = req.body;
-
-    // ✅ validation
-    if (!players || !players[0] || !wpnum) {
-      return res.status(400).json({ msg: "Required fields missing ❌" });
-    }
-
-    // ✅ UTR must be 12 digits
-    if (utr && !/^[0-9]{12}$/.test(utr)) {
-      return res.status(400).json({ msg: "Invalid UTR (12 digits only)" });
-    }
-
-    // ✅ check duplicate UTR
-    if (utr) {
-      const exists = await Solo.findOne({ utr });
-      if (exists) {
-        return res.status(400).json({ msg: "UTR already used ❌" });
-      }
-    }
-
     const solo = new Solo(req.body);
     await solo.save();
 
