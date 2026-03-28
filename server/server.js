@@ -45,6 +45,22 @@ const soloSchema = new mongoose.Schema({
 
 const Solo = mongoose.model("Solo", soloSchema);
 
+const matchSchema = new mongoose.Schema({
+  type: String,
+  matchId: String,
+  title: String,
+  roomId: String,
+  password: String,
+  matchTime: String,
+  entryFee: Number,
+  prizePool: Number,
+  totalSlots: Number,
+  isActive: Boolean,
+  createdAt: { type: Date, default: Date.now },
+});
+
+const Match = mongoose.model("Match", matchSchema);
+
 /* =========================
    TEAM ROUTES
 ========================= */
@@ -117,5 +133,16 @@ app.delete("/solo/delete/:id", async (req, res) => {
 });
 
 /* ========================= */
+// GET SOLO MATCH
+app.get("/api/match/solo", async (req, res) => {
+  const data = await Match.findOne({ type: "solo", isActive: true });
+  res.json(data);
+});
+
+// GET TEAM MATCH
+app.get("/api/match/team", async (req, res) => {
+  const data = await Match.findOne({ type: "team", isActive: true });
+  res.json(data);
+});
 
 app.listen(process.env.PORT || 5000, () => console.log("Server running 🚀"));
